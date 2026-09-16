@@ -1,0 +1,33 @@
+name: Verificar proyecto
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verificar backend
+        working-directory: backend
+        run: |
+          npm install
+          node --check src/server.js
+          node --check src/auth.js
+          node --check src/db.js
+
+      - name: Construir frontend
+        working-directory: frontend
+        run: |
+          npm install
+          npm run build
