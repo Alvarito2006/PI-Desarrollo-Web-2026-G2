@@ -2,6 +2,15 @@
 
 Aplicación web de prueba para **Prácticas Iniciales – Segundo Semestre 2026** de la Facultad de Ingeniería, USAC.
 
+| Nombre | Carné |  |
+| :--- | :---: | :--- |
+| Álvaro Moisés Girón Morales | 202501955 | Coordinador |
+| Jeremy Panameño | 202505989 | |
+| Josselyn Gabriela Mendoza Camargo | 202500317 | |
+| José Andrés Díaz Maldonado | 202505653 | |
+| Diego Alexander Loch Cocón | 202504811 | |
+| Diego Otto Eduardo Rodas Aceytuno | 202505251 | |
+
 El sistema permite que estudiantes registrados publiquen opiniones sobre cursos y catedráticos, comenten publicaciones, busquen perfiles y administren sus cursos aprobados y créditos acumulados.
 
 ## Funciones implementadas
