@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || '/api';
+const API_URL = '/api';
 
 function getToken() {
   return localStorage.getItem('token');
@@ -11,7 +11,8 @@ export async function api(path, options = {}) {
   };
 
   const token = getToken();
-  if (token) headers.Authorization = `Bearer ${token}`;
+  const isPublicAuthRoute = path.startsWith('/auth/');
+  if (token && !isPublicAuthRoute) headers.Authorization = `Bearer ${token}`;
 
   const response = await fetch(`${API_URL}${path}`, {
     ...options,
@@ -26,7 +27,7 @@ export async function api(path, options = {}) {
   }
 
   if (!response.ok) {
-    throw new Error(data?.message || 'Error al comunicarse con el servidor.');
+    throw new Error(data?.message || `Error HTTP ${response.status}`);
   }
 
   return data;
